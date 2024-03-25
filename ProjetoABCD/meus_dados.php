@@ -17,7 +17,7 @@ $usuario = $sql_exec->fetch_assoc(); //não faz loop porque é só um usuário
 
     <head>
         <title>Submeter Arquivo</title>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style2.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="javascript/script.js"></script>
@@ -44,13 +44,10 @@ $usuario = $sql_exec->fetch_assoc(); //não faz loop porque é só um usuário
                     <li><a href="listagem_contato.php" >Contato</a></li>
                     <li><a href="listagem_usuario.php">Usuários</a></li>
                     <li><a href="cadastro_usuario_1.php">Cadastrar Usuário</a></li>
+                    <li><a href="destruir_sessao.php">Sair</a></li>
 
 
                 </ul>
-            </div>
-            <div class="icons-menu-lateral">
-                <a href="destruir_sessao.php">               
-                    <img src="img/logout.png" alt=""/></a>
             </div>
         </div>
         <div class="fora-menu">

@@ -69,22 +69,19 @@
             </nav>
         </header>
 
-        <section class=formulário>
+        <section class=formulario>
             <div class="descricao">
                 <h2>Cadastro</h2>
                 <p>Preencha as credenciais abaixo para cadastrar um novo usuário no sistema da ABCD.</p>
             </div>
             <form action="" method="POST">
                 <div class="secao-column">
-                    <div>
-
                         <label>Nome:</label>
-                        <input type="text" name="nome" id="nome" value="<?php if (isset($_POST['nome'])) echo$_POST['nome']; ?>" autofocus>
+                        <input type="text" name="nome" id="nome" class="auto_modal" value="<?php if (isset($_POST['nome'])) echo$_POST['nome']; ?>" autofocus>
                         <label>E-mail:</label>
-                        <input type="text" name="email" id="email" value="<?php if (isset($_POST['email'])) echo$_POST['email']; ?>" autofocus>
+                        <input type="text" name="email" id="email" class="auto_modal" value="<?php if (isset($_POST['email'])) echo$_POST['email']; ?>" autofocus>
                         <label>Senha:</label>
-                        <input type="password" name="senha" id="senha" autofocus>
-                    </div>
+                        <input type="password" name="senha" id="senha" class="auto_modal" autofocus>
                 </div>
                 <div class="secao-row">
                     <div>
@@ -94,7 +91,6 @@
                     </div>
                 </div>
                 <div class="botoes">
-                    <button type="reset" name="limpar" id="limpar">Limpar</button>
                     <button type="submit" name="enviar" id="enviar">Enviar</button>
                 </div>   
             </form>

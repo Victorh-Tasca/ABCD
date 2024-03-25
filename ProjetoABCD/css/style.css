@@ -423,15 +423,18 @@ html, body {
     align-items: flex-start!important;
     padding: 5px 16px;
     display: flex;
+    font-family: "SofiaPro", sans-serif;
 }
 
 .descricao{
     width: 90%;
     margin:1% auto;
+    font-family: "SofiaPro", sans-serif;
 }
 .descricao h2{
     margin:15px 0px;
-    font-size: 40px;
+    font-size: 5vw;
+    justify-content: center;
 }
 .descricao p{
     text-align: center;
@@ -444,13 +447,16 @@ fieldset{
 }
 
 .secao-row{
-    width: 100%;
+    /*border:1px solid blue;*/
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin:7px;
-    padding: 10px 6px;
+    margin-left: 10px;
+    margin-right: 10px!important;
+    padding: 5px 0px 0px;
+    font-family: "SofiaPro", sans-serif;
+    font-size: 15px;
 }
 .secao-row label{
     font-size:18px;
@@ -458,7 +464,7 @@ fieldset{
 }
 .secao-row input{
     font-size:18px;
-    margin:5px;
+    margin:10px;
 }
 .non-radio input{
     height: 21px;
@@ -489,13 +495,20 @@ fieldset{
 
 /*ERRO PHP*/
 .error{
-    width:70px;
     height:35px;
-    border:1px solid #dc3545;
-    background-color: #dc3545;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px!important;
+    padding: 5px 0px 0px;
+    font-family: "SofiaPro", sans-serif;
+    font-size: 1.5vw;
+    color: red;
+    font-size: 2vw;
 }
 .error p{
-    color:black;
     font-size: 18px;
 
 }
@@ -514,15 +527,34 @@ fieldset{
 .esquceu-senha {
     /*border:1px solid blue;*/
     max-width:480px;
-    margin:0 auto 10px auto;
+    margin: 0px 10px 0px 10px;
     display: flex;
-    justify-content: space-between;
+    font-family: "SofiaPro", sans-serif;
+    font-size: 15px;
+    align-items: flex-start;
+
+}
+
+.esquceu-senha p a{
+    /*border:1px solid red;*/
+    color: #1600f2;
+}
+
+/*CADASTRAR*/
+.linkcadastro {
+    /*border:1px solid blue;*/
+    margin: 0px 25% 0px 25%;
+    display: flex;
+    font-family: "SofiaPro", sans-serif;
+    font-size: 15px;
+    flex-direction: column;
     align-items: center;
 
 }
-.esquceu-senha p a{
+
+.linkcadastro p a{
     /*border:1px solid red;*/
-    color:darkblue;
+    color: #1600f2;
 }
 /*AVISO*/
 .aviso{
@@ -687,15 +719,42 @@ button{
 
 }
 #enviar{
-    background-color: #28a745;
-    border:1px solid #28a745;
+    background-color: #007bff;
+    border:1px solid #007bff;
     color:white;
+    font-size: 20px;
+    flex-grow: 1;
+    position: relative;
+    height: 48px;
+    width: 100%;
+    border-radius: 4px;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: "SofiaPro", sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
 
 }
 #entrar{
     background-color: #007bff;
     border:1px solid #007bff;
     color:white;
+    font-size: 20px;
+    flex-grow: 1;
+    position: relative;
+    height: 48px;
+    width: 100%;
+    border-radius: 4px;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: "SofiaPro", sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
 #limpar{
     background-color: #ffc107;

@@ -97,19 +97,21 @@ if (isset($_POST['entrar'])) {
             </div>
             <form action="" method="POST">
                 <div class="secao-column">
-                        <label>E-mail:</label>
-                        <input type="text" name="email" class="auto_modal" autofocus>
-                        <label>Senha:</label>
-                        <input type="password" name="senha" class="auto_modal" autofocus>
+                    <label>E-mail:</label>
+                    <input type="text" name="email" class="auto_modal" autofocus>
+                    <label>Senha:</label>
+                    <input type="password" name="senha" class="auto_modal" autofocus>
                 </div>
                 <div class="esquceu-senha">
-                    <p><a href="cadastro_usuario.php">Cadastrar</a></p>
                     <p><a href="alterar_senha_login.php">Esqueci minha senha</a></p>
                 </div>
                 <div class="botoes">
-                    <button type="reset" name="limpar" id="limpar">Limpar</button>
                     <button type="submit" name="entrar" id="entrar">Entrar</button>
                 </div>   
+                <div class="linkcadastro">
+                    <p> Precisa cadastrar um colaborador? <a href="cadastro_usuario.php">Clique aqui!</a></p>
+
+                </div>
             </form>
         </section>
         <footer>
