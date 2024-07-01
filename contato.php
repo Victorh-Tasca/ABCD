@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html>
 
     <head>
-        <title>Página Inicial</title>
+        <title>Contato</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -14,20 +14,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
 
     <body>
-        <div class="sub-header">
+         <div class="sub-header">
             <div class="canais">
-                <div>
-                    <p><a href="mailto:caminho_de_damasco@hotmail.com">caminho_de_damasco@hotmail.com</a></p>
-                    <p><a href="tel:+551734225685">(17) 3422-5685</a></p>
-                    <p><a href="https://www.facebook.com/caminhode.damasco/?locale=pt_BR" target="_blank"><img
-                                src="img/facebook.png"></a></p>
-                    <p><a href="https://www.instagram.com/abcdvotu/" target="_blank"><img src="img/instagram.png"></a></p>
-                    <p><a href="https://www.youtube.com/@caminhodedamasco522" target="_blank"><img src="img/youtube3.png"></a></p>
+                <div class="canal-text">
+                    <a href="mailto:caminho_de_damasco@hotmail.com">caminho_de_damasco@hotmail.com</a>
                 </div>
+                <div class="canal-text"><a href="tel:+551734225685">(17) 3422-5685</a></div>
+                <div class="icon"><a href="https://www.facebook.com/caminhode.damasco/?locale=pt_BR" target="_blank"><img src="img/facebook.png"></a></div>
+                <div class="icon"><a href="https://www.instagram.com/abcdvotu/" target="_blank"><img src="img/instagram.png"></a></div>
+                <div class="icon"><a href="https://www.youtube.com/@caminhodedamasco522" target="_blank"><img src="img/youtube3.png"></a></div>
             </div>
         </div>
-        <header class="menu-inicial">
-            <img src="img/ABCD.png" alt="" />
+         <header class="menu-inicial">
+            <img src="img/logo_inicio.png" alt="">
             <nav>
                 <ul class="menu-inicial">
                     <li>
@@ -36,7 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </li>
 
                     <li>
-                        <a href="#"  onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()">História</a>
+                        <a href="#" onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()">História</a>
                         <div id="dropDown" onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()" class="dropdown-menu-inicial">
                             <a href="historia.php">A Entidade</a>
                             <a href="galeria_fotos.php">Galeria</a>
@@ -54,44 +53,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <li>
                         <a href="#" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()">Transparência</a>
                         <div id="dropDown3" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()" class="dropdown-menu-inicial">
-                            <a href="" onmouseover="funcao_dropdown_submenu()" onmouseout="funcao_dropdown_submenu()" href="#">Parcerias</a>
-                            <div id="dropDown_submenu" onmouseover="funcao_dropdown_submenu()" onmouseout="funcao_dropdown_submenu()" class="dropdown-menu-inicial">
-                                <a href="#">2021</a>
-                                <a href="#">2022</a>
-                                <a href="#">2023</a>
-                            </div>
-                            <a href="Transparencia/Administracao.php">Administração</a>
-                            <a href="#">Contabilidade</a>
-                            <a href="#">Documentos</a>
-                            <a href="#">Plano de Ação</a>
-                            <a href="#">Regularidade Fiscal</a>
-                            <a href="#">Relatórios</a>
+                            <a href="parcerias.php">Parcerias</a>
+                            <a href="administracao.php">Administração</a>
+                            <a href="contabilidade.php">Contabilidade</a>
+                            <a href="documentos.php">Documentos</a>
+                            <a href="plano_acao.php">Plano de Ação</a>
+                            <a href="regularidade_fiscal.php">Regularidade Fiscal</a>
+                            <a href="relatorios.php">Relatórios</a>
+                            <a href="login.php">Login</a>
+
+
                         </div>
                     </li>
                     <li><a href="contato.php">Contato</a></li>
                 </ul>
             </nav>
         </header>
-        <section class="formulario">
-            <div id="descricao_form">
+        <section class=formulário>
+            <div class="descricao">
                 <h2>Formulário de contato</h2>
                 <p>Preencha o formulário abaixo e entraremos em contato com você!</p>
             </div>
-            <form action="" method="POST">
+            <form action="" method="post">
                 <div class="secao-column">
+                    <div>
                         <label>Nome:</label>
-                        <input type="text" name="nome" class="auto_modal" autofocus>
+                        <input type="text" name="nome" id="nome" autofocus>
                         <label>Telefone:</label>
-                        <input type="tel" name="telefone" class="auto_modal" autofocus>
+                        <input type="tel" name="telefone" id="telefone" autofocus>
                         <label>Email:</label>
-                        <input type="email" name="email" class="auto_modal" autofocus>
+                        <input type="email" name="email" id="email" autofocus>
                         <label>Mensagem:</label>
-                        <textarea name="mensagem" class="auto_modal" cols="30" rows="10"></textarea>
+                        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+                    </div>
                 </div>
                 <div class="botoes">
+                    <button type="reset" name="limpar" id="limpar">Limpar</button>
                     <button type="submit" name="enviar" id="enviar">Enviar</button>
                 </div>   
             </form>
+                    </section>
             <?php
             include("lib/conexao.php");
             $erro = false;
@@ -143,7 +144,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     $sql_code = "INSERT INTO contato (nome,telefone,email,mensagem,data_contato)VALUES ('$nome','$telefone','$email','$mensagem',NOW())";
                     $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
                     if ($deu_certo) {
-                        echo '<p class="certo">Seu contato realizado com sucesso, <a href="index.php">voltar para página inicial</a></p>';
+                        echo '<p class="certo">Seu contato realizado com sucesso, <a href="inedex.php">voltar para página inicial</a></p>';
                     } else {
                         echo '<p class="error"> Erro ao realizar o contato</p>';
                     }
@@ -151,7 +152,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 }
             }
             ?>
-        </section>
         <footer>
             <img class="footimg" src="img/Copia_de_ABCD_-_LOGO.png" alt=""/>
             <div class="row footrow" >
@@ -166,6 +166,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <img class="footemail" src="img/icons8-email-50.png" alt=""/>
                 <p>caminho_de_damasco@hotmail.com</p>  
             </div>
+
         </footer>
     </body>
 </html>
