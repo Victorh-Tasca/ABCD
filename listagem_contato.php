@@ -6,11 +6,8 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['usuario'])) {
     die('<p class="error">Erro ao logar, volte a página de <a href="login.php">login</a> para iniciar uma sessão</p>');
+    //não faz loop porque é só um usuário
 }
-$id = $_SESSION['usuario'];
-$sql_code = "SELECT * FROM administrador WHERE id='$id'";
-$sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
-$usuario = $sql_exec->fetch_assoc(); //não faz loop porque é só um usuário
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,18 +18,13 @@ $usuario = $sql_exec->fetch_assoc(); //não faz loop porque é só um usuário
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style2.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="javascript/script.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
     </head>
 
     <body>
-        <div id="sidebar" class="menu-lateral sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="menu-lateral">
             <div class="imagem-menu-lateral">
-                <a href="submeter_arquivo.php">
-                    <img src="img/logo_adm.png" alt=""/>
-                </a>
+                <img src="img/logo_adm.png" alt=""/>
             </div>
             <div class="links-menu-lateral">
                 <ul>
@@ -42,93 +34,83 @@ $usuario = $sql_exec->fetch_assoc(); //não faz loop porque é só um usuário
                     <li><a href="contabilidade_listagem.php">Contabilidade</a></li>
                     <li><a href="documentos_listagem.php">Documentos</a></li>
                     <li><a href="planoacao_listagem.php">Plano de Ação</a></li>
-                    <li><a href="regularidadefiscal_listagem.php">Regularidade Fiscal</a></li>
-                    <li><a href="relatoriosatividade_listagem.php">Relatórios</a></li>
+                    <li><a href="regularidadefiscal_listagem.php" >Regularidade Fiscal</a></li>
+                    <li><a href="relatoriosatividade_listagem.php" >Relatórios</a></li>
                     <li><a href="listagem_contato.php">Contato</a></li>
                     <li><a href="listagem_usuario.php">Usuários</a></li>
                     <li><a href="cadastro_usuario_1.php">Cadastrar Usuário</a></li>
-                    <li><a href="destruir_sessao.php">Sair</a></li>
+
+
 
                 </ul>
             </div>
+            <div class="icons-menu-lateral">
+                <a href="destruir_sessao.php">               
+                    <img src="img/logout.png" alt=""/></a>
+            </div>
         </div>
-        <button class="openbtn" onclick="openNav()"><i class="fas fa-arrow-right"></i></button>
         <div class="fora-menu">
-            <div class="submeter-pos">
-                <div class="titulo-pos">
-                    <p>Associação Beneficente Caminho de Damasco</p>
-                    <div class="user-icon-container">
-                        <i class="fas fa-user-circle user-icon" onclick="toggleUserInfo()"></i>
-                    </div>
-                </div>
-                <div class="user-info" id="user-info">
-                    <p><label>Nome:</label> <?php echo $usuario['nome'] ?></p>
-                    <p><label>E-mail:</label> <?php echo $usuario['email'] ?></p>
-                    <p><label>Privilégio:</label> <?php echo $usuario['privilegio'] ?></p>
-                    <button onclick="alterarSenha()">Alterar senha</button>
-                </div>
-                <div class="listagem-arquivos">
-                    <h2>Listagem de Cadastros</h2>
-                    <h3>Contatos</h3>
+            <div class="listagem-arquivos">
+                <h2>Listagem de Cadastros</h2>
+                <h3>Contatos</h3>
+                <?php
+                include ("lib/conexao.php");
+                $sql_code = "SELECT * FROM contato";
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
+                $sql_listagem = $sql_exec->num_rows;
+                $id = $_SESSION['usuario'];
+                $sql_code_2 = "SELECT * FROM administrador WHERE id='$id'";
+                $sql_exec_2 = $mysqli->query($sql_code_2) or die($mysqli->error);
+                $usuario = $sql_exec_2->fetch_assoc();
+                ?>
+                <table border="5">
+                    <thead>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Mensagem</th>
+                    <th>Data da mensagem</th>
                     <?php
-                    include ("lib/conexao.php");
-                    $sql_code = "SELECT * FROM contato";
-                    $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
-                    $sql_listagem = $sql_exec->num_rows;
-                    $id = $_SESSION['usuario'];
-                    $sql_code_2 = "SELECT * FROM administrador WHERE id='$id'";
-                    $sql_exec_2 = $mysqli->query($sql_code_2) or die($mysqli->error);
-                    $usuario = $sql_exec_2->fetch_assoc();
-                    ?>
-                    <table border="5">
-                        <thead>
-                        <th>Nome</th>
-                        <th>Telefone</th>
-                        <th>E-mail</th>
-                        <th>Mensagem</th>
-                        <th>Data da mensagem</th>
+                    if ($usuario['privilegio'] == 1) {
+                        ?>
+                        <th>Comandos</th>
+                    <?php } ?>
+                    </thead>
+                    <tbody>
                         <?php
-                        if ($usuario['privilegio'] == 1) {
+                        if ($sql_listagem == 0) {
                             ?>
-                            <th>Comandos</th>
-                        <?php } ?>
-                        </thead>
-                        <tbody>
+                            <tr>
+                                <td colspan="6"><p>Não há mensagens para mostrar</p></td>
+                            </tr>
                             <?php
-                            if ($sql_listagem == 0) {
+                        } else {
+                            while ($listagem = $sql_exec->fetch_assoc()) {
                                 ?>
                                 <tr>
-                                    <td colspan="6"><p>Não há mensagens para mostrar</p></td>
-                                </tr>
-                                <?php
-                            } else {
-                                while ($listagem = $sql_exec->fetch_assoc()) {
-                                    ?>
-                                    <tr id="document-<?php echo $listagem['id'] ?>">
-                                        <td><?php echo $listagem['nome'] ?></td>
-                                        <td><?php echo $listagem['telefone'] ?></td>
-                                        <td><?php echo $listagem['email'] ?></td>
-                                        <td><?php echo $listagem['mensagem'] ?></td>
-                                        <td><?php echo $listagem['data_contato'] ?></td>
-                                        <?php
-                                        if ($usuario['privilegio'] == 1) {
-                                            ?>
-                                            <td>
-                                                <div class="botoes-comandos">
-                                                    <a><button class="deletar" onclick="deleteDocument(<?php echo $listagem['id'] ?>)">Excluir</button></a>
-                                                </div>
-                                            </td>
-                                        <?php } ?>
-                                    </tr>
-
+                                    <td><?php echo $listagem['nome'] ?></td>
+                                    <td><?php echo $listagem['telefone'] ?></td>
+                                    <td><?php echo $listagem['email'] ?></td>
+                                    <td><?php echo $listagem['mensagem'] ?></td>
+                                    <td><?php echo $listagem['data_contato'] ?></td>
                                     <?php
-                                }
+                                    if ($usuario['privilegio'] == 1) {
+                                        ?>
+                                        <td>
+                                            <div class="botoes-comandos">
+                                                <a href="excluir_contato.php?id=<?php echo $listagem['id'] ?>"><button id="deletar">Excluir</button></a>
+                                            </div>
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+
+                                <?php
                             }
-                            ?>
-                        </tbody>
-                    </table>
-                </div> 
-            </div>
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div> 
         </div>
 
 
