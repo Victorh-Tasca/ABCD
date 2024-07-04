@@ -14,61 +14,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </head>
 
 <body>
-   <div class="sub-header">
-            <div class="canais">
-                <div class="canal-text">
-                    <a href="mailto:caminho_de_damasco@hotmail.com">caminho_de_damasco@hotmail.com</a>
-                </div>
-                <div class="canal-text"><a href="tel:+551734225685">(17) 3422-5685</a></div>
-                <div class="icon"><a href="https://www.facebook.com/caminhode.damasco/?locale=pt_BR" target="_blank"><img src="img/facebook.png"></a></div>
-                <div class="icon"><a href="https://www.instagram.com/abcdvotu/" target="_blank"><img src="img/instagram.png"></a></div>
-                <div class="icon"><a href="https://www.youtube.com/@caminhodedamasco522" target="_blank"><img src="img/youtube3.png"></a></div>
+  <div class="sub-header">
+    <div class="canais">
+      <div>
+        <p><a href="mailto:caminho_de_damasco@hotmail.com">caminho_de_damasco@hotmail.com</a></p>
+        <p><a href="tel:+551734225685">(17) 3422-5685</a></p>
+        <p><a href="https://www.facebook.com/caminhode.damasco/?locale=pt_BR" target="_blank"><img
+              src="img/facebook.png"></a></p>
+        <p><a href="https://www.instagram.com/abcdvotu/" target="_blank"><img src="img/instagram.png"></a></p>
+        <p><a href="https://www.youtube.com/@caminhodedamasco522" target="_blank"><img src="img/youtube3.png"></a></p>
+      </div>
+    </div>
+  </div>
+  <header class="menu-inicial">
+      <img src="img/Imagem.png" alt=""/>
+    <nav>
+      <ul class="menu-inicial">
+        <li>
+          <a href="index.php">Início</a>
+
+        </li>
+
+        <li>
+          <a href="#"  onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()">História</a>
+          <div id="dropDown" onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()" class="dropdown-menu-inicial">
+            <a href="historia.php">A Entidade</a>
+            <a href="galeria_fotos.php">Galeria</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="#" onmouseover="funcao_dropdown2()" onmouseout="funcao_dropdown2()">Programas, Projetos e Serviços</a>
+          <div id="dropDown2" onmouseover="funcao_dropdown2()" onmouseout="funcao_dropdown2()" class="dropdown-menu-inicial">
+            <a href="Programas, Projetos e Serviços/FIA - Banco do Brasil.php">FIA - Banco do Brasil</a>
+            <a href="Programas, Projetos e Serviços/FMDCA.php">FMDCA</a>
+            <a href="Programas, Projetos e Serviços/SERVIÇO DE CONVIVÊNCIA E FORTALECIMENTO DE VINCULOS.php">Serviço de Convivência e Fortalecimento de Vínculos</a>
+          </div>
+        </li>
+        <li>
+          <a href="#" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()">Transparência</a>
+          <div id="dropDown3" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()" class="dropdown-menu-inicial">
+            <a href="" onmouseover="funcao_dropdown_submenu()" onmouseout="funcao_dropdown_submenu()" href="#">Parcerias</a>
+            <div id="dropDown_submenu" onmouseover="funcao_dropdown_submenu()" onmouseout="funcao_dropdown_submenu()" class="dropdown-menu-inicial">
+              <a href="#">2021</a>
+              <a href="#">2022</a>
+              <a href="#">2023</a>
             </div>
-        </div>
-         <header class="menu-inicial">
-            <img src="img/logo_inicio.png" alt="">
-            <nav>
-                <ul class="menu-inicial">
-                    <li>
-                        <a href="index.php">Início</a>
-
-                    </li>
-
-                    <li>
-                        <a href="#" onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()">História</a>
-                        <div id="dropDown" onmouseover="funcao_dropdown()" onmouseout="funcao_dropdown()" class="dropdown-menu-inicial">
-                            <a href="historia.php">A Entidade</a>
-                            <a href="galeria_fotos.php">Galeria</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="#" onmouseover="funcao_dropdown2()" onmouseout="funcao_dropdown2()">Programas, Projetos e Serviços</a>
-                        <div id="dropDown2" onmouseover="funcao_dropdown2()" onmouseout="funcao_dropdown2()" class="dropdown-menu-inicial">
-                            <a href="Programas, Projetos e Serviços/FIA - Banco do Brasil.php">FIA - Banco do Brasil</a>
-                            <a href="Programas, Projetos e Serviços/FMDCA.php">FMDCA</a>
-                            <a href="Programas, Projetos e Serviços/SERVIÇO DE CONVIVÊNCIA E FORTALECIMENTO DE VINCULOS.php">Serviço de Convivência e Fortalecimento de Vínculos</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()">Transparência</a>
-                        <div id="dropDown3" onmouseover="funcao_dropdown3()" onmouseout="funcao_dropdown3()" class="dropdown-menu-inicial">
-                            <a href="parcerias.php">Parcerias</a>
-                            <a href="administracao.php">Administração</a>
-                            <a href="contabilidade.php">Contabilidade</a>
-                            <a href="documentos.php">Documentos</a>
-                            <a href="plano_acao.php">Plano de Ação</a>
-                            <a href="regularidade_fiscal.php">Regularidade Fiscal</a>
-                            <a href="relatorios.php">Relatórios</a>
-                            <a href="login.php">Login</a>
-
-
-                        </div>
-                    </li>
-                    <li><a href="contato.php">Contato</a></li>
-                </ul>
-            </nav>
-        </header>
+            <a href="Transparencia/Administracao.php">Administração</a>
+            <a href="#">Contabilidade</a>
+            <a href="#">Documentos</a>
+            <a href="#">Plano de Ação</a>
+            <a href="#">Regularidade Fiscal</a>
+            <a href="#">Relatórios</a>
+          </div>
+        </li>
+        <li><a href="contato.php">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
         <div class="artigo">
             <div class="container topo">
                 <div class="row">
@@ -83,9 +86,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             Vem executando de forma continuada o Serviço de Convivência e Fortalecimento de Vínculos a crianças e adolescentes de 06 a 15 anos desde 2009, após a implantação da Tipificação Nacional de Serviços Socioassistencias.
                             A Associação Beneficente “Caminho de Damasco, tem por finalidade atender, defender e garantir os direitos das crianças e adolescentes, com ações sócio assistenciais, dentro da Proteção Social Básica
                         </p>
-                    </div>
-                    <div class="img1">
-                        <img scr="img/doacoes.png">
                     </div>
                 </div>
             </div>

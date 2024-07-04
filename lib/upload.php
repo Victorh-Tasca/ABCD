@@ -4,8 +4,8 @@ function enviar($error, $size, $name, $tmp_name) {
     if ($error) {
         die('<p style="color:red;font-weight:bold">Falha ao enviar</p>');
     }
-    if ($size > 6000000) {
-        die('<p style="color:yellow;background-color:red">Arquivo muito grande. No máximo 6M</p>');
+    if ($size > 2097152) {
+        die('<p style="color:yellow;background-color:red">Arquivo muito grande. No máximo 2M</p>');
     }
     //var_dump($_FILES['arquivos']);-onde consultar prorpiedades como name, size, error pois estão dentro do array FILES
     $pasta = "arquivos/";

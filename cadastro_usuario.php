@@ -102,7 +102,7 @@
             if (isset($_POST['enviar'])) {
                 $nome =$_POST['nome'];
                 $email =$_POST['email'];
-                $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
+                $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
                 $privilegio = $_POST['priv'];
 
                 /* VERIFICANDO SE OS CAMMPOS ESTÃO VAZIOS */
@@ -129,7 +129,7 @@
 
                 /* VERIFICANDO A FORMATAÇÃO DOS CAMPOS */
                 if (!empty($email)) {
-                    $email = filter_var($email,FILTER_VALIDATE_EMAIL);
+                    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
                     if (!$email) {
                         $erro = 'Preencha o campo no formato example@gmail.com';
                     }
