@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html>
-
     <head>
         <title>Página Inicial</title>
         <meta charset="UTF-8">
@@ -15,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
 
     <body>
-       <div class="sub-header">
+        <div class="sub-header">
             <div class="canais">
                 <div class="canal-text">
                     <a href="mailto:caminho_de_damasco@hotmail.com">caminho_de_damasco@hotmail.com</a>
@@ -26,7 +24,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="icon"><a href="https://www.youtube.com/@caminhodedamasco522" target="_blank"><img src="img/youtube3.png"></a></div>
             </div>
         </div>
-         <header class="menu-inicial">
+        <header class="menu-inicial">
             <img src="img/logo_inicio.png" alt="">
             <nav>
                 <ul class="menu-inicial">
@@ -87,39 +85,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </div>
         <h1 class="titulo">Administração</h1>
-
         <div class="espacotransp sombratransp">
-
             <h2 class="subtitulo">Documentos - Administração</h2>
             <hr align="left">
-                <?php
-                include ("lib/conexao.php");
-                $sql_code = "SELECT * FROM arquivo WHERE  id_categoria= 2 ";
-                $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
-                $sql_listagem = $sql_exec->num_rows;
-               
-                ?>
-                <table>
-                    <thead>
-                    </thead>
-                    <tbody>
+            <?php
+            include ("lib/conexao.php");
+            $sql_code = "SELECT * FROM arquivo WHERE  id_categoria= 2 ";
+            $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
+            $sql_listagem = $sql_exec->num_rows;
+            ?>
+            <table>
+                <thead>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($sql_listagem == 0) {
+                        ?>
+                        <tr>
+                            <td colspan="4"><p>Não há arquivos para mostrar</p></td>
+                        </tr>
                         <?php
-                        if ($sql_listagem == 0) {
+                    } else {
+                        while ($listagem = $sql_exec->fetch_assoc()) {
                             ?>
                             <tr>
-                                <td colspan="4"><p>Não há arquivos para mostrar</p></td>
+                                <td> <a href="<?php echo $listagem['path']; ?>" type="application/pdf" width="100%" height="100%" target="_blank"><?php echo $listagem['titulo_documento'] ?></a></td>
                             </tr>
-                            <?php
-                        } else {
-                            while ($listagem = $sql_exec->fetch_assoc()) {
-                                ?>
-                                <tr>
-                                    <td> <a href="<?php echo $listagem['path'];?>" type="application/pdf" width="100%" height="100%" target="_blank"><?php  echo $listagem['titulo_documento'] ?></a></td>
-                                </tr>
-                    </tbody>
-                              <?php 
-                            }
-                        }?>
+                        </tbody>
+                        <?php
+                    }
+                }
+                ?>
             </table>
         </div>
 
